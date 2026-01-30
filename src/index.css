@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Dark industrial gym theme */
+    --background: 220 15% 8%;
+    --foreground: 0 0% 98%;
+
+    --card: 220 15% 12%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 220 15% 10%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 24 100% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 15% 18%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 220 15% 15%;
+    --muted-foreground: 220 10% 60%;
+
+    --accent: 24 100% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 15% 20%;
+    --input: 220 15% 20%;
+    --ring: 24 100% 50%;
+
+    --radius: 0.5rem;
+
+    /* Custom colors */
+--brand-blue: 215 76% 32%;          /* Main logo blue */
+--brand-blue-light: 215 76% 42%;
+--brand-blue-dark: 215 76% 24%;
+
+--steel: 220 12% 42%;
+--steel-light: 220 12% 62%;
+--dark-surface: 220 20% 6%;
+
+/* Gradients */
+--gradient-hero: linear-gradient(
+  135deg,
+  hsl(220 20% 8%) 0%,
+  hsl(220 25% 4%) 100%
+);
+
+--gradient-card: linear-gradient(
+  180deg,
+  hsl(220 20% 14%) 0%,
+  hsl(220 20% 10%) 100%
+);
+
+--gradient-cta: linear-gradient(
+  135deg,
+  hsl(215 76% 32%) 0%,
+  hsl(215 76% 24%) 100%
+);
+
+--gradient-cta-hover: linear-gradient(
+  135deg,
+  hsl(215 76% 38%) 0%,
+  hsl(215 76% 28%) 100%
+);
+
+/* Shadows */
+--shadow-card: 0 10px 40px -10px hsl(0 0% 0% / 0.55);
+
+--shadow-cta: 0 8px 30px -8px hsl(215 76% 32% / 0.45);
+--shadow-cta-hover: 0 12px 40px -8px hsl(215 76% 32% / 0.65);
+
+/* Sidebar */
+--sidebar-background: 220 20% 9%;
+--sidebar-foreground: 0 0% 98%;
+
+--sidebar-primary: 215 76% 32%;
+--sidebar-primary-foreground: 0 0% 100%;
+
+--sidebar-accent: 220 20% 15%;
+--sidebar-accent-foreground: 0 0% 98%;
+
+--sidebar-border: 220 20% 22%;
+--sidebar-ring: 215 76% 40%;
+
+  }
+
+  .dark {
+  /* Core surfaces */
+  --background: 220 22% 6%;
+  --foreground: 0 0% 96%;
+
+  /* Cards & layers */
+  --card: 220 22% 10%;
+  --card-foreground: 0 0% 98%;
+
+  --popover: 220 22% 8%;
+  --popover-foreground: 0 0% 98%;
+
+  /* Brand colors */
+  --primary: 215 76% 32%;          /* Logo blue */
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 0 0% 98%;           /* White as secondary */
+  --secondary-foreground: 220 20% 10%;
+
+  /* Muted text & dividers */
+  --muted: 220 18% 14%;
+  --muted-foreground: 0 0% 72%;
+
+  /* Accent = white highlight */
+  --accent: 0 0% 100%;
+  --accent-foreground: 215 76% 32%;
+
+  /* Destructive */
+  --destructive: 0 65% 42%;
+  --destructive-foreground: 0 0% 100%;
+
+  /* Borders & inputs use soft white */
+  --border: 0 0% 100% / 0.08;
+  --input: 0 0% 100% / 0.12;
+
+  /* Focus ring blends blue → white */
+  --ring: 215 76% 40%;
+}
+
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply px-4 sm:px-6 lg:px-8 py-16 md:py-24;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-brand-orange to-brand-orange-light bg-clip-text text-transparent;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:scale-[1.02] hover:shadow-card-lg;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px hsl(24 100% 50% / 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px hsl(24 100% 50% / 0.5);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.6s ease-out forwards;
+}
+
+.animate-slide-up-delay-1 {
+  animation: slide-up 0.6s ease-out 0.1s forwards;
+  opacity: 0;
+}
+
+.animate-slide-up-delay-2 {
+  animation: slide-up 0.6s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+.animate-slide-up-delay-3 {
+  animation: slide-up 0.6s ease-out 0.3s forwards;
+  opacity: 0;
+}
